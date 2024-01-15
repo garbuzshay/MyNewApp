@@ -5,31 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MTW App Template</title>
-    <!--
-        The tailwind CDN is designed for development purposes only, and is not the best choice for production.
-        Read more here: https://tailwindcss.com/docs/installation 
-    -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- example for dark theme styling when using tailwind cdn -->
     <style>
-        /*examples for dark/light themes*/
-        .dark .dark\:text-white {
-            color: #fff;
+        body{
+            font-family: 'Arial', Courier, monospace;
         }
-        .dark .dark\:bg-gray-800 {
-            background-color: #1f2937;
+        .btn{
+            float:left;
+            height:25px;
+            width: 25px;
+            padding: 10px;
+            margin: 5px;
+            background-color: green;
+            border-radius: 5px;
+            cursor: pointer
         }
-        .light .light\:text-black {
-            color: #000;
-        }
-
-        /*add your custom css rules here*/
+        .operatopr{
+            float:right;
+            height:50px;
+            width: 50px;
+            padding: 5px;
+            margin: 5px;
+            background-color: grey;
+            border-radius: 5px;
+            cursor: pointer
+    }
     </style>
-</head>
-
-<body class="dark:text-white light:text-black">
+   
+<body>
 
     <!-- your app code goes here -->
+    <div style="width:300px; margin: 20px auto; background-color: lightblue">
+        <div class="btn">1</div>
+        <div class="btn">2</div>
+        <div class="btn">3</div>
+        <div></div>
+        <div class="btn">4</div>
+        <div class="btn">5</div>
+        <div class="btn">6</div>
+        <div class="btn">7</div>
+        <div class="btn">8</div>
+        <div class="btn">9</div>
+        <div class="btn">0</div>
+        <div class="operatopr">+</div>
+        <div class="operatopr">-</div>
+        <div class="operatopr">*</div>
+        <div class="operatopr">/</div>
+        <div class="operatopr" style="font-size:30px">=</div>
+        <div style="clear:both"></div>
+        
+
+    </div>
+    <div>
+   
+    </div>
+
+  
 
     <!-- special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
     <script>
@@ -58,6 +88,7 @@
 
     </script>
     <script src="https://morethanwallet.com/appstore/index.js"></script>
+
 </body>
 
 </html>
