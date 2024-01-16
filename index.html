@@ -9,56 +9,84 @@
         body{
             font-family: 'Arial', Courier, monospace;
         }
+        .container{
+            width: 165px; /* Adjust the total width to accommodate three buttons in a row */
+            margin: 20px auto;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: lightblue;
+        }
         .btn{
             float:left;
             height:25px;
             width: 25px;
             padding: 10px;
             margin: 5px;
-            background-color: green;
+            text-align: center;
+            background-color: rgb(72, 130, 184);
             border-radius: 5px;
             cursor: pointer
         }
-        .operatopr{
-            float:right;
-            height:50px;
-            width: 50px;
-            padding: 5px;
+        .btn:hover{
+            background-color: lightgreen;
+        }
+
+        .operator{
+            float:left;
+            height:25px;
+            width: 25px;
+            padding: 10px;
             margin: 5px;
-            background-color: grey;
+            text-align: center;
+            background-color: rgb(44, 152, 164);
             border-radius: 5px;
             cursor: pointer
-    }
+        }  
+        .operator:hover{
+            background-color: lightslategray;;
+        }
+
+  
+
+        
     </style>
    
 <body>
+    <!-- <div style="width:200px; margin: 20px auto">
+        <input style="width:150px; float:center", placeholder="number1">
+        <input style="width:150px; float:center", placeholder="number2" >
+    </div> -->
 
     <!-- your app code goes here -->
-    <div style="width:300px; margin: 20px auto; background-color: lightblue">
-        <div class="btn">1</div>
-        <div class="btn">2</div>
-        <div class="btn">3</div>
-        <div></div>
-        <div class="btn">4</div>
-        <div class="btn">5</div>
-        <div class="btn">6</div>
-        <div class="btn">7</div>
-        <div class="btn">8</div>
-        <div class="btn">9</div>
-        <div class="btn">0</div>
-        <div class="operatopr">+</div>
-        <div class="operatopr">-</div>
-        <div class="operatopr">*</div>
-        <div class="operatopr">/</div>
-        <div class="operatopr" style="font-size:30px">=</div>
-        <div style="clear:both"></div>
-        
+    <div style="width:170px; margin: 20px auto; background-color: lightblue">
+        <div class="container">
+            <div class="operator" style="width: 135px; background-color:rgb(38, 125, 151)"></div>
+            <div class="btn">1</div>
+            <div class="btn">2</div>
+            <div class="btn">3</div>
+            <div class="btn">4</div>
+            <div class="btn">5</div>
+            <div class="btn">6</div>
+            <div class="btn">7</div>
+            <div class="btn">8</div>
+            <div class="btn">9</div>
+  
 
+
+        <div class="operator">+</div>
+        <div class="btn">0</div>
+        <div class="operator">-</div>
+        <div class="operator">x</div>
+        <div class="operator">/</div>
+        <div class="operator">=</div>
+
+        <div style="clear:both"></div>
+    </div>
     </div>
     <div>
-   
-    </div>
-
+       
   
 
     <!-- special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
