@@ -8,7 +8,7 @@
     <style>
         body{
             font-family: 'Arial', Courier, monospace;
-        }
+                }
         .container{
             width: 165px; /* Adjust the total width to accommodate three buttons in a row */
             margin: 20px auto;
@@ -51,45 +51,40 @@
   
 
         
-    </style>
+        </style>
    
 <body>
-    <!-- <div style="width:200px; margin: 20px auto">
-        <input style="width:150px; float:center", placeholder="number1">
-        <input style="width:150px; float:center", placeholder="number2" >
-    </div> -->
 
     <!-- your app code goes here -->
     <div style="width:170px; margin: 20px auto; background-color: lightblue">
         <div class="container">
-            <div class="operator" style="width: 135px; background-color:rgb(38, 125, 151)"></div>
-            <div class="btn">1</div>
-            <div class="btn">2</div>
-            <div class="btn">3</div>
-            <div class="btn">4</div>
-            <div class="btn">5</div>
-            <div class="btn">6</div>
-            <div class="btn">7</div>
-            <div class="btn">8</div>
-            <div class="btn">9</div>
-  
+            <div class="operator" id="resultArea" style="width: 80px; background-color:rgb(38, 125, 151)"></div>
+            <div class="operator" id="ac">ac</div>
+            <div class="btn" value="1" onclick="cal('1')">1</div>
+            <div class="btn" value="2" onclick="cal('2')">2</div>
+            <div class="btn" value="3" onclick="cal('3')">3</div>
+            <div class="btn" value="4" onclick="cal('4')">4</div>
+            <div class="btn" value="5" onclick="cal('5')">5</div>
+            <div class="btn" value="6" onclick="cal('6')">6</div>
+            <div class="btn" value="7" onclick="cal('7')">7</div>
+            <div class="btn" value="8" onclick="cal('8')">8</div>
+            <div class="btn" value="9" onclick="cal('9')">9</div>
+            <div class="operator" id="btnMinus">+</div>
+            <div class="btn" value="0" onclick="cal('0')">0</div>
+            <div class="operator" id="btnMinus">-</div>
+            <div class="operator" id="btnMult">x</div>
+            <div class="operator" id="btnDiv">/</div>
+            <div class="operator" id="btnEqual">=</div>
 
+            <div style="clear:both"></div>
 
-        <div class="operator">+</div>
-        <div class="btn">0</div>
-        <div class="operator">-</div>
-        <div class="operator">x</div>
-        <div class="operator">/</div>
-        <div class="operator">=</div>
-
-        <div style="clear:both"></div>
+        </div>
     </div>
-    </div>
-    <div>
+<div>
        
   
 
-    <!-- special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
+    <!-- special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code
     <script>
         // custom config for the MTW app 
         const mtwAppConfig = {
@@ -115,8 +110,8 @@
         })
 
     </script>
-    <script src="https://morethanwallet.com/appstore/index.js"></script>
-
+    <script src="https://morethanwallet.com/appstore/index.js"></script> -->
+    <script src="inc/script.js"></script>
 </body>
 
 </html>

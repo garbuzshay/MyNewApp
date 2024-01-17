@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garbuz Calculator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <form>
+                <div>
+                    <input type="text" class="resultArea" name="resultArea" style="width: 140px;" >
+                    <input type="button" class="operatopr" value="AC" onclick="resultArea.value = ''">
+                </div>
+                <div>
+                    <input type="button" value="7" onclick="resultArea.value += '7'">
+                    <input type="button" value="8" onclick="resultArea.value += '8'">
+                    <input type="button" value="9" onclick="resultArea.value += '9'">
+                </div>
+                <div>
+                    <input type="button" value="4" onclick="resultArea.value += '4'">
+                    <input type="button" value="5" onclick="resultArea.value += '5'">
+                    <input type="button" value="6" onclick="resultArea.value += '6'">
+                </div>
+                <div>
+                    <input type="button" value="1" onclick="resultArea.value += '1'">
+                    <input type="button" value="2" onclick="resultArea.value += '2'">
+                    <input type="button" value="3" onclick="resultArea.value += '3'">
+                </div>
+                <div>
+                    <input type="button" class="operatopr" value="+" onclick="resultArea.value += '+'">
+                    <input type="button" value="0" onclick="resultArea.value += '0'">
+                    <input type="button" class="operatopr" value="-" onclick="resultArea.value += '-'">
+                </div>
+                <div>
+                    <input type="button" class="operatopr" value="x" onclick="resultArea.value += '*'">
+                    <input type="button" class="operatopr" value="/" onclick="resultArea.value += '/'">
+                    <input type="button" value="=" class="equal" onclick="resultArea.value=eval(resultArea.value)">
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
