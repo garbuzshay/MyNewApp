@@ -5,12 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garbuz Calculator</title>
     <link rel="stylesheet" href="style.css">
+<script>
+   document.addEventListener("keydown", (event) => {
+        let key = event.key;
 
+        // Focus on the resultArea
+        document.querySelector(".resultArea").focus();
+
+        // Prevent default behavior for all keys except Enter
+        if (key !== "Enter" &&  key !== "Backspace") {
+            event.preventDefault();
+        }
+
+        // Check if the pressed key is a number or operator
+        if (/[0-9+\-*/.=]/.test(key)) {
+            document.querySelector(".resultArea").value += key;
+        } else if (key === "Enter") {
+            event.preventDefault();
+            document.querySelector(".equal").click();
+        }
+        else if ( key =="Backspace") {
+            resultArea.value = resultArea.value.slice(0, -1); // Delete the last character
+        }
+    });
+</script>
 </head>
 <body>
     <div class="container">
         <div class="calculator">
-            <form>
+            <form onsubmit="event.preventDefault();">
                 <div>
                     <input type="text" class="resultArea" name="resultArea" style="width: 140px;" >
                     <input type="button" class="operatopr" value="AC" onclick="resultArea.value = ''">
