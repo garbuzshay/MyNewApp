@@ -1,39 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cryptocurrency Data</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    <div id="app" class="max-w-[1000px] mx-auto">
-      <h1 class="font-bold text-3xl text-center text-blue-600 my-4">
-        Cryptocurrency Data
-      </h1>
-      <div id="cryptoTableBody"></div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTW App Template</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', Courier, monospace;
+            box-sizing: border-box;
+                }
+
+        .container{
+            width: 350px;
+            height: 270px;
+            margin: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color:  rgba(60, 137, 172, 0.2);
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 0px 0px 10px rgba(89, 133, 153, 0.2);
+            border: 5px solid rgba(89, 133, 153, 0.2);
+            border-radius: 10px;
+            
+            }
+
+        .resultArea{
+            width: 97%;
+            /* background-color:rgb(185, 183, 180); */
+            height: 40px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            }
+
+        .specialOper {
+            width: 54px;
+            margin-bottom: 7px;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            }
+            
+        #specialOperFaded{
+            color: rgb(105, 99, 99);
+            }
+        
+        .btnOperator {
+            width: 65px;
+            height: 25px;
+            font-size: 14px;
+            margin-bottom: 1px;
+            margin-right: 1px;
+        }
+
+        .number {
+            width: 65px;
+            height: 25px;
+            margin-right: 1px;;
+            font-weight: bold;
+            }
+
+        .number:hover{
+            background-color: rgb(198, 237, 198);
+        }
+        </style>
+   
+<body>
+
+    <!-- your app code goes here -->
+        <div class="container">
+            <div>
+                <input type="text" class="resultArea" id="resultArea" value="0" >
+            </div>
+            <div>
+                <input type="button" class="specialOper" id ="specialOperFaded" value="MC">
+                <input type="button" class="specialOper" id ="specialOperFaded" value="MR">
+                <input type="button" class="specialOper" value="M+">
+                <input type="button" class="specialOper" value="M-">
+                <input type="button" class="specialOper" value="MS">
+                <input type="button" class="specialOper" id ="specialOperFaded" value="M*">
+            </div>
+            <div>
+                <input type="button" class="btnOperator" value="2ⁿᵈ" onclick="addToResult('2**')">
+                <input type="button" class="btnOperator" value="π" onclick="addToResult('3.1415926535')">
+                <input type="button" class="btnOperator" value="e" onclick="addToResult('2.71828182845')">
+                <input type="button" class="btnOperator" value="C" onclick=clearResultArea()>
+                <input type="button" class="btnOperator" value="Del" onclick="resultArea.value = resultArea.value.slice(0, -1)">
+
+            </div>
+            <div>
+                <input type="button" class="btnOperator" value="x²" onclick="addToResult('**2')">
+                <input type="button" class="btnOperator" value="1&frasl;x" onclick="calculateOpp()">
+                <input type="button" class="btnOperator" value="|x|" onclick="calculateAbs()">
+                <input type="button" class="btnOperator" value="exp" onclick="addToResult('*(10)**')">
+                <input type="button" class="btnOperator" value="mod" onclick="addToResult('%')">
+            </div>
+            <div>
+                <input type="button" class="btnOperator" value="√x" onclick="calculateSqrt()">
+                <input type="button" class="btnOperator" value="(" onclick="addToResult('(')">
+                <input type="button" class="btnOperator" value=")" onclick="addToResult(')')">
+                <input type="button" class="btnOperator" value="n!" onclick="calculateFactorial()">
+                <input type="button" class="btnOperator" value="&#247" onclick="addToResult('/')">
+            </div>
+            <div>
+                <input type="button" class="btnOperator" value="xʸ" onclick="addToResult('**')">
+                <input type="button" class="number" value="7" onclick="addToResult('7')">
+                <input type="button" class="number" value="8" onclick="addToResult('8')">
+                <input type="button" class="number" value="9" onclick="addToResult('9')">
+                <input type="button" class="btnOperator" value="x" onclick="addToResult('*')">
+            </div>
+            <div>
+                <input type="button" class="btnOperator" value="10ˣ" onclick="addToResult('10**')" >
+                <input type="button" class="number" value="4" onclick="addToResult('4')">
+                <input type="button" class="number" value="5" onclick="addToResult('5')">
+                <input type="button" class="number" value="6" onclick="addToResult('6')">
+                <input type="button" class="btnOperator" value="-" onclick="addToResult('-')">
+            </div>
+            <div>
+                <input type="button" class="btnOperator" value="log" onclick="calculateLog()">
+                <input type="button" class="number" value="1" onclick="addToResult('1')">
+                <input type="button" class="number" value="2" onclick="addToResult('2')">
+                <input type="button" class="number" value="3" onclick="addToResult('3')">
+                <input type="button" class="btnOperator" value="+" onclick="addToResult('+')">
+
+            </div>
+            <div>
+                <input type="button" class="btnOperator" value="ln" onclick="calculateLn()">
+                <input type="button" class="btnOperator" value="+&frasl;-" onclick="togglePlusMinus()">
+                <input type="button" class="number" value="0" onclick="addToResult('0')">
+                <input type="button" class="btnOperator" value="." onclick="addToResult('.')">
+                <input type="button" value="=" class="btnOperator" onclick="calculateResult()">
+
+            </div>
+
     </div>
+
+
     <script>
-      const row = (k, v, i) => {
-        return `<tr>
-            <td class="w-16 p-2 align-top border-b ${i===0 && ' border-t'} border-gray-200"><img class="h-full w-auto" src="${v['image']}" /></td>
-            <td class="p-2 align-top border-b ${i===0 && ' border-t'} border-gray-200 py-2 px-4">${k}</td>
-            <td class="p-2 align-top border-b ${i===0 && ' border-t'} border-gray-200 py-2 px-4"><a href="${v['website']}" target="_blank" class="text-blue-500 font-semibold">${v['name']}</a></td>
-            <td class="p-2 align-top border-b ${i===0 && ' border-t'} border-gray-200 py-2 px-4">${v['summary']}</td>
-          </tr>`
-      }
+          function clearResultArea() {
+            document.getElementById('resultArea').value = '';
+    }
 
-      const createTable = (data) => {
-        let keys = Object.keys(data);
-        let rows = keys.map((key, i) => row(key, data[key], i)).join('');
-        document.getElementById('cryptoTableBody').innerHTML = `<table class="table-auto w-full">${rows}</table>`;
-      };
+        function addToResult(value) {
+                document.getElementById('resultArea').value += value;
+    }
 
-      const url = "https://api.mtw-testnet.com/assets/all";
-      fetch(url)
-        .then((response) => response.json())
-        .then((v) => createTable(v))
-        .catch((err) => console.log(err));
+        function calculateResult() {
+            document.getElementById('resultArea').value = eval(resultArea.value)
+    }
+        function calculateOpp(){
+            let currentValue = document.getElementById('resultArea').value;
+            currentValue = 1 / currentValue
+            document.getElementById('resultArea').value = currentValue;
+    }
+    
+        function calculateAbs(){
+            let currentValue = document.getElementById('resultArea').value;
+            currentValue = Math.abs (currentValue)
+            document.getElementById('resultArea').value = currentValue;
+    }
+
+        function calculateSqrt (){
+            let currentValue = document.getElementById('resultArea').value;
+            currentValue = Math.sqrt (currentValue)
+            document.getElementById('resultArea').value = currentValue;
+    }
+
+        function togglePlusMinus() {
+            let currentValue = document.getElementById('resultArea').value;
+                if (currentValue.charAt(currentValue.length - 1) === '+') {
+                    document.getElementById('resultArea').value = currentValue.slice(0, -1) + '-';
+                }
+                else if (currentValue.charAt(currentValue.length - 1) === '-') {
+                    document.getElementById('resultArea').value = currentValue.slice(0, -1) + '+';
+                }
+                else
+                document.getElementById('resultArea').value += '+';
+    }
+
+        function calculateFactorial(){
+            let currentValue = document.getElementById('resultArea').value;
+            if (currentValue === 0 || currentValue === 1)
+                document.getElementById('resultArea').value = '1';
+            for (var i = currentValue - 1; i >= 1; i--) {
+                currentValue *= i;
+            }
+            document.getElementById('resultArea').value = currentValue;
+        }
+
+        function calculateLn(){
+            let currentValue = document.getElementById('resultArea').value;
+            document.getElementById('resultArea').value = Math.log(currentValue);
+
+        }
+
+        function calculateLog(){
+            let currentValue = document.getElementById('resultArea').value;
+            document.getElementById('resultArea').value = Math.log10(currentValue);
+
+}
+
+    
+        
+
+        // custom config for the MTW app 
+        // const mtwAppConfig = {
+        //     border: true // app border in the MTW page                    
+        // }
+
+        // ///////////////////////////////////////////////////////
+        // // implement this functions in order to use private API        
+        // const sendPrivateApiRequest = async () => {
+        //     // your code here:
+        //     // sendRequestToParent({ cat: 'getAssets' })
+        // }        
+
+        // const acceptPrivateApiResponse = async (data) => {
+        //     // process received data here:
+        //     // console.log(data)
+        // }
+
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     function clearResultArea() {
+        //     document.getElementsByClassName ('resultArea').value = '';
+        // }
+
+        // })
+
     </script>
-  </body>
+    <script src="https://morethanwallet.com/appstore/index.js"></script>
+    <script src="inc/script.js"></script>
+</body>
+
 </html>
